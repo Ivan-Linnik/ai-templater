@@ -1,0 +1,68 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.4.13/schema.json",
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": {
+                    "level": "on",
+                    "options": {
+                        "groups": [
+                            ":URL:",
+                            ":NODE:",
+                            ":PACKAGE:",
+                            ":BLANK_LINE:",
+                            ":SIDE_EFFECT:",
+                            ":BLANK_LINE:",
+                            ":ALIAS:",
+                            ":BLANK_LINE:",
+                            "../**",
+                            "./**",
+                            ":BLANK_LINE:"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "files": {
+        "ignoreUnknown": true,
+        "includes": ["**", "!node_modules", "!dist"]
+    },
+    "formatter": {
+        "attributePosition": "multiline",
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 90
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single",
+            "trailingCommas": "none",
+            "semicolons": "always",
+            "bracketSpacing": false,
+            "arrowParentheses": "asNeeded"
+        }
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "style": {
+                "noMagicNumbers": "warn",
+                "noNonNullAssertion": "warn",
+                "noUnusedTemplateLiteral": "warn",
+                "noUselessElse": "warn",
+                "useBlockStatements": "off"
+            },
+            "suspicious": {
+                "noUnknownAtRules": "off"
+            }
+        }
+    },
+    "vcs": {
+        "clientKind": "git",
+        "enabled": true,
+        "useIgnoreFile": true
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "hooks": {
+        "UserPromptSubmit": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "echo '[ai-templater] Declare role and why before responding.'"
+                    }
+                ]
+            }
+        ],
+        "PreToolUse": [
+            {
+                "matcher": "Edit|Write|MultiEdit",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "echo '[ai-templater] STOP before editing — (1) Is this change explicitly approved by the user? (2) Bugfix/refactor: identified ALL entry points? Feature: identified ALL integration points with existing code? If not — complete analysis first.'"
+                    }
+                ]
+            }
+        ],
+        "PostToolUse": [
+            {
+                "matcher": "Edit|Write|MultiEdit",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "echo '[ai-templater] Changes applied. Verify: (1) matches approved plan exactly? (2) no scope creep? (3) obvious regressions?'"
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "echo '[ai-templater] Architect: do NOT proceed to implementation without explicit user approval.'"
+                    }
+                ]
+            },
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "echo '[ai-templater] Reviewer: Challenge block is required before Uncertainty. Do not skip it.'"
+                    }
+                ]
+            }
+        ]
+    },
+    "permissions": {
+        "deny": ["Bash(rm -rf*)", "Bash(git push --force*)", "Bash(git reset --hard*)"]
+    }
+}

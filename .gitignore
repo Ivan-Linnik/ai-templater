@@ -1,0 +1,15 @@
+# IDE & AI
+.vscode/
+.claude/
+/CLAUDE.md
+
+# Dependencies
+node_modules/
+
+# Build & Tests
+
+# Misc
+.DS_Store
+
+# Temporary files
+/*.txt
